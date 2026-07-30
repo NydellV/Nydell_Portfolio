@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nydell Vera | Data Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Nydell Vera's data analytics portfolio featuring projects built with Python, SQL, PostgreSQL, Tableau, MongoDB, Dash, and Plotly."
+  >
+
+  <title>Nydell Vera | Data Analytics Portfolio</title>
 
   <style>
     * {
@@ -17,17 +23,22 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "Helvetica Neue", Arial, sans-serif;
       background: #f5f5f7;
       color: #1d1d1f;
       line-height: 1.6;
     }
 
+    img {
+      max-width: 100%;
+    }
+
     .nav {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(245, 245, 247, 0.85);
+      z-index: 1000;
+      background: rgba(245, 245, 247, 0.88);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
@@ -43,21 +54,22 @@
     }
 
     .nav-name {
-      font-weight: 700;
       font-size: 1rem;
+      font-weight: 750;
     }
 
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 18px;
     }
 
     .nav-links a {
       color: #1d1d1f;
       text-decoration: none;
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 600;
+      transition: color 0.2s ease;
     }
 
     .nav-links a:hover {
@@ -65,12 +77,12 @@
     }
 
     .hero {
-      min-height: 85vh;
+      min-height: 88vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 85px 22px 65px;
       text-align: center;
-      padding: 80px 20px 50px;
       background: linear-gradient(to bottom, #ffffff, #f5f5f7);
     }
 
@@ -79,30 +91,47 @@
     }
 
     .profile-photo {
-      width: 155px;
-      height: 155px;
+      width: 165px;
+      height: 165px;
       object-fit: cover;
+      object-position: center;
       border-radius: 50%;
       margin-bottom: 24px;
-      background: #fff;
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
+      background: #ffffff;
+      border: 5px solid #ffffff;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.16);
     }
 
     .hero h1 {
-      font-size: clamp(3rem, 8vw, 5.6rem);
-      font-weight: 800;
-      letter-spacing: -0.045em;
-      margin-bottom: 10px;
+      font-size: clamp(3.2rem, 8vw, 5.8rem);
+      font-weight: 850;
+      letter-spacing: -0.05em;
+      line-height: 1.05;
+      margin-bottom: 14px;
     }
 
-    .hero p {
-      font-size: clamp(1.15rem, 2.5vw, 1.7rem);
+    .hero-role {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: #424245;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hero-description {
+      max-width: 720px;
+      margin: 0 auto 28px;
       color: #6e6e73;
-      margin-bottom: 26px;
+      font-size: 1.08rem;
     }
 
-    .hero-buttons,
-    .project-links {
+    .hero-tech {
+      color: #6e6e73;
+      font-size: 1rem;
+      font-weight: 650;
+      margin-bottom: 28px;
+    }
+
+    .button-group {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -110,159 +139,281 @@
       margin-top: 20px;
     }
 
-    .hero-buttons a,
-    .project-links a {
+    .button {
       display: inline-block;
-      background: #0071e3;
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 20px;
+      padding: 12px 21px;
       border-radius: 999px;
-      font-weight: 700;
+      text-decoration: none;
+      font-weight: 750;
       transition: 0.2s ease;
     }
 
-    .hero-buttons a:hover,
-    .project-links a:hover {
+    .button-primary {
+      background: #0071e3;
+      color: #ffffff;
+    }
+
+    .button-primary:hover {
       background: #005bb5;
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      background: #e8e8ed;
+      color: #1d1d1f;
+    }
+
+    .button-secondary:hover {
+      background: #d8d8dc;
+      transform: translateY(-2px);
     }
 
     .container {
-      max-width: 1150px;
+      width: min(1150px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 0 20px 80px;
+      padding: 20px 0 85px;
     }
 
-    .section-title {
+    .section {
+      scroll-margin-top: 100px;
+      margin-bottom: 35px;
+    }
+
+    .section-heading {
       text-align: center;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 40px;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 850;
+      letter-spacing: -0.04em;
+      margin: 35px 0 38px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.94);
       border-radius: 30px;
-      padding: 34px;
+      padding: 38px;
       margin-bottom: 28px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 12px 38px rgba(0, 0, 0, 0.065);
+      border: 1px solid rgba(0, 0, 0, 0.035);
     }
 
     .card h2 {
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 8px;
-    }
-
-    .meta {
-      color: #6e6e73;
-      font-size: 0.98rem;
-      margin-bottom: 22px;
-      font-weight: 500;
+      font-size: clamp(1.85rem, 4vw, 2.55rem);
+      font-weight: 850;
+      letter-spacing: -0.035em;
+      margin-bottom: 13px;
     }
 
     .card p {
-      font-size: 1.05rem;
       color: #424245;
-      margin-bottom: 14px;
+      font-size: 1.06rem;
+      margin-bottom: 15px;
+    }
+
+    .about-text {
+      max-width: 900px;
     }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
+      margin-top: 25px;
     }
 
     .skill-box {
       background: #f5f5f7;
       border-radius: 22px;
-      padding: 22px;
+      padding: 24px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
     }
 
     .skill-box h3 {
-      margin-bottom: 10px;
-      font-size: 1.05rem;
-    }
-
-    .project-block {
-      margin-top: 24px;
-      padding-top: 22px;
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    .project-block:first-of-type {
-      border-top: none;
-      padding-top: 0;
-      margin-top: 0;
-    }
-
-    .project-subtitle {
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       font-weight: 800;
-      color: #1d1d1f;
-      margin-bottom: 10px;
+      margin-bottom: 11px;
     }
 
-    ul.clean-list {
-      margin: 10px 0 0 22px;
-      color: #424245;
+    .skill-box p {
+      color: #5c5c61;
+      font-size: 1rem;
+      margin-bottom: 0;
     }
 
-    ul.clean-list li {
-      margin-bottom: 8px;
+    .project-meta {
+      color: #6e6e73;
+      font-size: 0.98rem;
+      font-weight: 650;
+      margin-bottom: 25px;
+    }
+
+    .project-image-main {
+      width: 100%;
+      display: block;
+      border-radius: 22px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      margin: 25px 0 20px;
     }
 
     .image-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin: 24px 0 28px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin: 16px 0 30px;
     }
 
-    .project-img {
+    .project-image {
       width: 100%;
-      border-radius: 20px;
+      height: 220px;
+      object-fit: cover;
+      object-position: top;
       display: block;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
-      background: #fff;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 9px 25px rgba(0, 0, 0, 0.09);
+      transition: transform 0.2s ease;
+    }
+
+    .project-image:hover {
+      transform: translateY(-3px);
+    }
+
+    .project-section {
+      margin-top: 25px;
+      padding-top: 23px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .project-subtitle {
+      font-size: 1.08rem;
+      font-weight: 820;
+      margin-bottom: 11px;
+    }
+
+    .clean-list {
+      padding-left: 22px;
+      color: #424245;
+    }
+
+    .clean-list li {
+      margin-bottom: 9px;
+    }
+
+    .status {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: #fff3cd;
+      color: #725600;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .upcoming-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .upcoming-card {
+      min-height: 315px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .upcoming-card h2 {
+      font-size: 1.8rem;
+    }
+
+    .upcoming-tech {
+      color: #6e6e73;
+      font-size: 0.95rem;
+      font-weight: 650;
+      margin-top: 15px;
+    }
+
+    .resume-card {
+      text-align: center;
+    }
+
+    .resume-card p {
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .contact {
       text-align: center;
     }
 
-    .contact a {
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .contact-link {
       color: #0071e3;
-      font-weight: 700;
+      font-weight: 750;
       text-decoration: none;
     }
 
-    .contact a:hover {
+    .contact-link:hover {
       text-decoration: underline;
     }
 
-    @media (max-width: 760px) {
+    footer {
+      padding: 30px 20px 45px;
+      text-align: center;
+      color: #6e6e73;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 850px) {
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        height: auto;
+      }
+
+      .upcoming-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
       .nav-inner {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .skills-grid,
-      .image-grid {
+      .nav-links {
+        gap: 13px;
+      }
+
+      .skills-grid {
         grid-template-columns: 1fr;
       }
 
       .card {
-        padding: 24px;
+        padding: 26px;
+        border-radius: 24px;
       }
 
       .profile-photo {
-        width: 125px;
-        height: 125px;
+        width: 135px;
+        height: 135px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 65px;
       }
     }
   </style>
@@ -273,6 +424,7 @@
   <nav class="nav">
     <div class="nav-inner">
       <div class="nav-name">Nydell Vera</div>
+
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -283,206 +435,334 @@
     </div>
   </nav>
 
-  <section class="hero">
+  <header class="hero">
     <div class="hero-content">
-      <img src="headshot.jpg" alt="Nydell Vera headshot" class="profile-photo">
+
+      <img
+        src="headshot.jpg"
+        alt="Professional headshot of Nydell Vera"
+        class="profile-photo"
+      >
 
       <h1>Nydell Vera</h1>
 
-      <p>
-        Data Analyst | Data Science Portfolio<br>
-        SQL • Python • Excel • Tableau • MongoDB
+      <p class="hero-role">
+        Aspiring Data Analyst | Future Data Engineer
       </p>
 
-      <div class="hero-buttons">
-        <a href="#projects">View Projects</a>
-        <a href="Nydell_Vera_Resume.pdf" target="_blank">View Resume</a>
-        <a href="https://github.com/NydellV" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/nydell-f-vera" target="_blank">LinkedIn</a>
+      <p class="hero-description">
+        Computer Science graduate passionate about building data driven
+        solutions through analytics, visualization, databases, and modern
+        data technologies.
+      </p>
+
+      <p class="hero-tech">
+        SQL • Python • PostgreSQL • Excel • Tableau • MongoDB
+      </p>
+
+      <div class="button-group">
+        <a href="#projects" class="button button-primary">
+          View Projects
+        </a>
+
+        <a
+          href="Nydell_F_Vera_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button button-secondary"
+        >
+          View Resume
+        </a>
+
+        <a
+          href="https://github.com/NydellV"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button button-secondary"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/nydell-f-vera"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button button-secondary"
+        >
+          LinkedIn
+        </a>
       </div>
     </div>
-  </section>
+  </header>
 
   <main class="container">
 
-    <section class="card" id="about">
+    <section class="card section" id="about">
       <h2>About Me</h2>
-      <p>
-        I am a Computer Science graduate with a concentration in Software Engineering and a strong interest in data analytics, data science, and business intelligence. My portfolio focuses on using SQL, Python, Excel, Tableau, and databases to clean data, analyze trends, build dashboards, and communicate insights clearly.
-      </p>
-      <p>
-        My projects include real-world style analysis involving gas price trends, retail sales performance, animal shelter data, and predictive modeling. I enjoy turning raw data into useful insights that can support better business decisions.
-      </p>
+
+      <div class="about-text">
+        <p>
+          I am a Computer Science graduate with a passion for transforming
+          data into meaningful insights and building solutions that support
+          data driven decision making. I have hands on experience with SQL,
+          Python, PostgreSQL, Excel, Tableau, MongoDB, and data visualization,
+          and I continue to strengthen my skills through practical analytics
+          projects.
+        </p>
+
+        <p>
+          My portfolio focuses on developing complete data projects that
+          involve data collection, cleaning, analysis, visualization, database
+          management, and automation. I enjoy solving business problems with
+          data and continuously learning technologies that prepare me for a
+          career in analytics and data engineering.
+        </p>
+
+        <p>
+          I am currently seeking opportunities where I can contribute my
+          technical foundation, analytical mindset, and passion for learning
+          while continuing to grow as a data professional.
+        </p>
+      </div>
     </section>
 
-    <section class="card" id="skills">
+    <section class="card section" id="skills">
       <h2>Technical Skills</h2>
 
       <div class="skills-grid">
+
         <div class="skill-box">
-          <h3>Analytics</h3>
-          <p>Excel, Pivot Tables, Data Cleaning, Reporting, Dashboard Design</p>
+          <h3>Programming Languages</h3>
+          <p>Python, SQL, HTML, CSS</p>
         </div>
 
         <div class="skill-box">
-          <h3>Programming</h3>
-          <p>Python, SQL, Java, HTML, CSS</p>
+          <h3>Analytics and Visualization</h3>
+          <p>
+            Excel, Tableau, Data Cleaning, Data Visualization,
+            Exploratory Data Analysis
+          </p>
         </div>
 
         <div class="skill-box">
-          <h3>Databases & Tools</h3>
-          <p>PostgreSQL, MySQL, MongoDB, Tableau, GitHub</p>
+          <h3>Databases</h3>
+          <p>PostgreSQL, MySQL, MongoDB</p>
         </div>
 
         <div class="skill-box">
-          <h3>Data Science</h3>
-          <p>Pandas, NumPy, Scikit-Learn, Visualization, Machine Learning Basics</p>
+          <h3>Libraries and Tools</h3>
+          <p>
+            Pandas, NumPy, Matplotlib, Plotly, Dash, Requests,
+            SQLAlchemy, Git, GitHub, VS Code, Jupyter Notebook
+          </p>
         </div>
+
       </div>
     </section>
 
-    <h2 class="section-title" id="projects">Projects</h2>
+    <section class="section" id="projects">
+      <h2 class="section-heading">Projects</h2>
 
-    <section class="card">
-      <h2>California Gas Price Analysis</h2>
-      <div class="meta">SQL • Excel • Tableau • Data Cleaning • Dashboard Development</div>
+      <article class="card">
+        <h2>Animal Shelter Analytics Dashboard</h2>
 
-      <div class="project-block">
-        <div class="project-subtitle">Project Overview</div>
-        <p>
-          Analyzed more than 15,000 gas price records across 300+ California cities to identify regional pricing patterns, fuel grade differences, and cost disparities between major metropolitan areas.
-        </p>
-      </div>
+        <div class="project-meta">
+          Python • MongoDB • Dash • Plotly • Pandas
+        </div>
 
-      <div class="project-block">
-        <div class="project-subtitle">Key Contributions</div>
-        <ul class="clean-list">
-          <li>Cleaned and validated raw gas price records using SQL by removing invalid, missing, and unrealistic price values.</li>
-          <li>Created SQL queries to compare average gas prices by city, fuel grade, and region.</li>
-          <li>Built Excel summary reports and Pivot Tables to support analysis.</li>
-          <li>Designed Tableau dashboards to visualize pricing trends and compare major cities.</li>
-          <li>Identified that San Francisco’s average gas prices were approximately 12% higher than San Diego’s.</li>
-        </ul>
-      </div>
+        <img
+          src="Chart1.png"
+          alt="Main view of the Animal Shelter Analytics Dashboard"
+          class="project-image-main"
+        >
 
-      <div class="project-links">
-        <a href="#" target="_blank">GitHub Repository</a>
-        <a href="#" target="_blank">Tableau Dashboard</a>
+        <div class="image-grid">
+          <img
+            src="Chart2.png"
+            alt="Animal Shelter Dashboard showing the Water Rescue filter"
+            class="project-image"
+          >
+
+          <img
+            src="Chart3.png"
+            alt="Animal Shelter Dashboard showing the Mountain and Wilderness Rescue filter"
+            class="project-image"
+          >
+
+          <img
+            src="Chart4.png"
+            alt="Animal Shelter Dashboard showing another interactive rescue filter"
+            class="project-image"
+          >
+        </div>
+
+        <div class="project-section">
+          <div class="project-subtitle">Project Overview</div>
+
+          <p>
+            Developed an interactive analytics dashboard that allows users to
+            explore animal shelter records through dynamic filters, charts,
+            tables, and geographic mapping. The dashboard connects Python with
+            MongoDB to retrieve and display shelter information based on
+            selected rescue categories.
+          </p>
+        </div>
+
+        <div class="project-section">
+          <div class="project-subtitle">Key Contributions</div>
+
+          <ul class="clean-list">
+            <li>
+              Integrated Python with MongoDB to perform CRUD operations and
+              dynamically query animal shelter records.
+            </li>
+
+            <li>
+              Developed interactive filters that update dashboard records and
+              visualizations based on user selections.
+            </li>
+
+            <li>
+              Created Dash and Plotly visualizations to communicate shelter
+              patterns and breed information.
+            </li>
+
+            <li>
+              Added geographic mapping to display the location of selected
+              animal records.
+            </li>
+
+            <li>
+              Built a responsive interface that supports efficient data
+              exploration and visual reporting.
+            </li>
+          </ul>
+        </div>
+
+        <div class="button-group">
+          <a
+            href="https://github.com/NydellV/animal-shelter-analytics-dashboard"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button button-primary"
+          >
+            View GitHub Repository
+          </a>
+        </div>
+      </article>
+
+      <div class="upcoming-grid">
+
+        <article class="card upcoming-card">
+          <div>
+            <span class="status">In Development</span>
+
+            <h2>California Gas Price Analysis</h2>
+
+            <p>
+              Analyzing more than 15,000 gasoline price records across over
+              300 California cities to uncover regional price differences,
+              fuel grade trends, and meaningful business insights.
+            </p>
+          </div>
+
+          <div class="upcoming-tech">
+            PostgreSQL • SQL • Excel • Tableau
+          </div>
+        </article>
+
+        <article class="card upcoming-card">
+          <div>
+            <span class="status">In Development</span>
+
+            <h2>Retail Price Intelligence Platform</h2>
+
+            <p>
+              Building a retail analytics platform that collects product
+              pricing information from public retailer APIs and loads the data
+              into PostgreSQL for historical pricing, availability, and
+              competitor analysis.
+            </p>
+          </div>
+
+          <div class="upcoming-tech">
+            Python • REST APIs • PostgreSQL • SQL • ETL • Git
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <section class="card">
-      <h2>Walmart Sales Analysis</h2>
-      <div class="meta">SQL • Excel • Tableau • Retail Analytics</div>
-
-      <div class="project-block">
-        <div class="project-subtitle">Project Overview</div>
-        <p>
-          Analyzed Walmart sales data to identify sales trends, top-performing categories, seasonal patterns, and business insights that could support retail decision-making.
-        </p>
-      </div>
-
-      <div class="project-block">
-        <div class="project-subtitle">Key Contributions</div>
-        <ul class="clean-list">
-          <li>Cleaned and organized retail sales data for analysis.</li>
-          <li>Analyzed sales performance across stores, departments, and time periods.</li>
-          <li>Used Excel and SQL to summarize key metrics and identify high-performing areas.</li>
-          <li>Created dashboard visuals to communicate trends and patterns clearly.</li>
-        </ul>
-      </div>
-
-      <div class="project-links">
-        <a href="#" target="_blank">GitHub Repository</a>
-        <a href="#" target="_blank">Dashboard</a>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>Animal Shelter Analytics Dashboard</h2>
-      <div class="meta">Python • MongoDB • Dash • CRUD Operations • Data Visualization</div>
-
-      <div class="image-grid">
-        <img src="Chart1.png" alt="Animal shelter dashboard chart 1" class="project-img">
-        <img src="Chart2.png" alt="Animal shelter dashboard chart 2" class="project-img">
-        <img src="Chart3.png" alt="Animal shelter dashboard chart 3" class="project-img">
-        <img src="Chart4.png" alt="Animal shelter dashboard chart 4" class="project-img">
-      </div>
-
-      <div class="project-block">
-        <div class="project-subtitle">Project Overview</div>
-        <p>
-          Built a Python and MongoDB project that combines a CRUD data layer with an interactive dashboard for exploring animal shelter data. The backend supports creating, reading, updating, and deleting records while the dashboard displays filtered shelter data through visualizations.
-        </p>
-      </div>
-
-      <div class="project-block">
-        <div class="project-subtitle">Key Contributions</div>
-        <ul class="clean-list">
-          <li>Developed CRUD functionality using Python and PyMongo.</li>
-          <li>Used MongoDB to store and query animal shelter records.</li>
-          <li>Created an interactive dashboard to filter and visualize shelter data.</li>
-          <li>Added validation to protect important fields such as animal type, breed, and name.</li>
-          <li>Moved database credentials into environment variables to improve security.</li>
-        </ul>
-      </div>
-
-      <div class="project-links">
-        <a href="https://github.com/NydellV/Original-Files-CS-340" target="_blank">Original Project</a>
-        <a href="https://github.com/NydellV/Enhancement-3" target="_blank">Enhanced Project</a>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>Loan Default Prediction</h2>
-      <div class="meta">Python • Pandas • Scikit-Learn • Machine Learning</div>
-
-      <div class="project-block">
-        <div class="project-subtitle">Project Overview</div>
-        <p>
-          Developed a data science project focused on predicting loan default risk using customer and financial data. The project includes data cleaning, exploratory analysis, model building, and model evaluation.
-        </p>
-      </div>
-
-      <div class="project-block">
-        <div class="project-subtitle">Key Contributions</div>
-        <ul class="clean-list">
-          <li>Cleaned and prepared loan data for machine learning analysis.</li>
-          <li>Explored relationships between income, credit history, loan amount, and default risk.</li>
-          <li>Built classification models using Python and Scikit-Learn.</li>
-          <li>Evaluated model performance using accuracy, precision, recall, and ROC-AUC.</li>
-          <li>Identified important factors that may contribute to loan default risk.</li>
-        </ul>
-      </div>
-
-      <div class="project-links">
-        <a href="#" target="_blank">GitHub Repository</a>
-        <a href="#" target="_blank">Notebook</a>
-      </div>
-    </section>
-
-    <section class="card" id="resume">
+    <section class="card resume-card section" id="resume">
       <h2>Resume</h2>
+
       <p>
-        View my resume to learn more about my education, technical skills, projects, and professional experience.
+        View my resume to learn more about my education, technical skills,
+        analytics projects, and professional experience.
       </p>
 
-      <div class="project-links">
-        <a href="Nydell_Vera_Resume.pdf" target="_blank">Download Resume</a>
+      <div class="button-group">
+        <a
+          href="Nydell_F_Vera_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button button-primary"
+        >
+          View Resume
+        </a>
+
+        <a
+          href="Nydell_F_Vera_Resume.pdf"
+          download
+          class="button button-secondary"
+        >
+          Download Resume
+        </a>
       </div>
     </section>
 
-    <section class="card contact" id="contact">
+    <section class="card contact section" id="contact">
       <h2>Contact</h2>
+
       <p>
-        I am currently seeking entry-level opportunities in data analytics, business intelligence, and data science.
+        I am currently seeking opportunities in data analytics, business
+        intelligence, and data engineering. Feel free to reach out to connect
+        or discuss potential opportunities.
       </p>
-      <p>Email: <a href="mailto:nydell03@gmail.com">nydell03@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/NydellV" target="_blank">github.com/NydellV</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/nydell-f-vera" target="_blank">linkedin.com/in/nydell-f-vera</a></p>
+
+      <div class="contact-links">
+        <a
+          href="mailto:nydell.f.vera@gmail.com"
+          class="contact-link"
+        >
+          Email
+        </a>
+
+        <a
+          href="https://github.com/NydellV"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-link"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/nydell-f-vera"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-link"
+        >
+          LinkedIn
+        </a>
+      </div>
     </section>
 
   </main>
+
+  <footer>
+    <p>© 2026 Nydell Vera. Built with HTML and CSS.</p>
+  </footer>
 
 </body>
 </html>
