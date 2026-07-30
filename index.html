@@ -6,7 +6,7 @@
 
   <meta
     name="description"
-    content="Nydell Vera's data analytics portfolio featuring projects built with Python, SQL, PostgreSQL, Tableau, MongoDB, Dash, and Plotly."
+    content="Nydell Vera's data analytics portfolio featuring projects built with Python, SQL, PostgreSQL, Tableau, MongoDB, Dash, Plotly, REST APIs, and ETL pipelines."
   >
 
   <title>Nydell Vera | Data Analytics Portfolio</title>
@@ -146,6 +146,7 @@
       text-decoration: none;
       font-weight: 750;
       transition: 0.2s ease;
+      border: none;
     }
 
     .button-primary {
@@ -166,6 +167,12 @@
     .button-secondary:hover {
       background: #d8d8dc;
       transform: translateY(-2px);
+    }
+
+    .button-disabled {
+      background: #eeeeef;
+      color: #86868b;
+      cursor: default;
     }
 
     .container {
@@ -243,7 +250,23 @@
       color: #6e6e73;
       font-size: 0.98rem;
       font-weight: 650;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+    }
+
+    .status {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: #fff3cd;
+      color: #725600;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .status-complete {
+      background: #e8f5e9;
+      color: #1b5e20;
     }
 
     .project-image-main {
@@ -299,41 +322,6 @@
       margin-bottom: 9px;
     }
 
-    .status {
-      display: inline-block;
-      margin-bottom: 18px;
-      padding: 7px 13px;
-      border-radius: 999px;
-      background: #fff3cd;
-      color: #725600;
-      font-size: 0.88rem;
-      font-weight: 800;
-    }
-
-    .upcoming-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .upcoming-card {
-      min-height: 315px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .upcoming-card h2 {
-      font-size: 1.8rem;
-    }
-
-    .upcoming-tech {
-      color: #6e6e73;
-      font-size: 0.95rem;
-      font-weight: 650;
-      margin-top: 15px;
-    }
-
     .resume-card {
       text-align: center;
     }
@@ -380,10 +368,6 @@
 
       .project-image {
         height: auto;
-      }
-
-      .upcoming-grid {
-        grid-template-columns: 1fr;
       }
     }
 
@@ -439,7 +423,7 @@
     <div class="hero-content">
 
       <img
-        src="headshot.jpg"
+        src="./headshot.jpg"
         alt="Professional headshot of Nydell Vera"
         class="profile-photo"
       >
@@ -466,7 +450,7 @@
         </a>
 
         <a
-          href="Nydell_F_Vera_Resume.pdf"
+          href="./Nydell_F_Vera_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           class="button button-secondary"
@@ -564,6 +548,8 @@
       <h2 class="section-heading">Projects</h2>
 
       <article class="card">
+        <span class="status status-complete">Completed</span>
+
         <h2>Animal Shelter Analytics Dashboard</h2>
 
         <div class="project-meta">
@@ -571,27 +557,27 @@
         </div>
 
         <img
-          src="Chart1.png"
+          src="./Chart1.png"
           alt="Main view of the Animal Shelter Analytics Dashboard"
           class="project-image-main"
         >
 
         <div class="image-grid">
           <img
-            src="Chart2.png"
+            src="./Chart2.png"
             alt="Animal Shelter Dashboard showing the Water Rescue filter"
             class="project-image"
           >
 
           <img
-            src="Chart3.png"
+            src="./Chart3.png"
             alt="Animal Shelter Dashboard showing the Mountain and Wilderness Rescue filter"
             class="project-image"
           >
 
           <img
-            src="Chart4.png"
-            alt="Animal Shelter Dashboard showing another interactive rescue filter"
+            src="./Chart4.png"
+            alt="Animal Shelter Dashboard showing the Disaster and Individual Tracking filter"
             class="project-image"
           >
         </div>
@@ -651,46 +637,120 @@
         </div>
       </article>
 
-      <div class="upcoming-grid">
+      <article class="card">
+        <span class="status">Currently In Development</span>
 
-        <article class="card upcoming-card">
-          <div>
-            <span class="status">In Development</span>
+        <h2>Retail Price Intelligence Platform</h2>
 
-            <h2>California Gas Price Analysis</h2>
+        <div class="project-meta">
+          Python • PostgreSQL • REST APIs • SQL • ETL • Git
+        </div>
 
-            <p>
-              Analyzing more than 15,000 gasoline price records across over
-              300 California cities to uncover regional price differences,
-              fuel grade trends, and meaningful business insights.
-            </p>
-          </div>
+        <div class="project-section">
+          <div class="project-subtitle">Project Overview</div>
 
-          <div class="upcoming-tech">
-            PostgreSQL • SQL • Excel • Tableau
-          </div>
-        </article>
+          <p>
+            Building an end to end retail analytics platform that collects
+            product pricing data from public retailer APIs and stores it in
+            PostgreSQL for historical analysis. The platform is designed to
+            support pricing trend analysis, product availability tracking,
+            retailer comparisons, and future dashboard integration.
+          </p>
+        </div>
 
-        <article class="card upcoming-card">
-          <div>
-            <span class="status">In Development</span>
+        <div class="project-section">
+          <div class="project-subtitle">Current Progress</div>
 
-            <h2>Retail Price Intelligence Platform</h2>
+          <ul class="clean-list">
+            <li>
+              Setting up secure authentication with public retailer APIs.
+            </li>
 
-            <p>
-              Building a retail analytics platform that collects product
-              pricing information from public retailer APIs and loads the data
-              into PostgreSQL for historical pricing, availability, and
-              competitor analysis.
-            </p>
-          </div>
+            <li>
+              Designing a PostgreSQL database for product, pricing, store, and
+              location data.
+            </li>
 
-          <div class="upcoming-tech">
-            Python • REST APIs • PostgreSQL • SQL • ETL • Git
-          </div>
-        </article>
+            <li>
+              Developing Python ETL pipelines to extract, transform, and load
+              retail pricing data.
+            </li>
 
-      </div>
+            <li>
+              Implementing validation checks to identify duplicate, missing,
+              and inconsistent records.
+            </li>
+
+            <li>
+              Planning SQL analysis and interactive dashboards for historical
+              pricing and retailer comparisons.
+            </li>
+          </ul>
+        </div>
+
+        <div class="button-group">
+          <span class="button button-disabled">
+            Repository Coming Soon
+          </span>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="status">Currently In Development</span>
+
+        <h2>California Gas Price Analysis</h2>
+
+        <div class="project-meta">
+          PostgreSQL • SQL • Excel • Tableau
+        </div>
+
+        <div class="project-section">
+          <div class="project-subtitle">Project Overview</div>
+
+          <p>
+            Analyzing more than 15,000 gasoline price records across over 300
+            California cities to identify regional price differences, fuel
+            grade trends, data quality issues, and meaningful business
+            insights.
+          </p>
+        </div>
+
+        <div class="project-section">
+          <div class="project-subtitle">Project Highlights</div>
+
+          <ul class="clean-list">
+            <li>
+              Cleaned and validated gasoline price records using PostgreSQL.
+            </li>
+
+            <li>
+              Developed SQL queries using JOINs, GROUP BY, HAVING, CASE
+              statements, and aggregate functions.
+            </li>
+
+            <li>
+              Compared fuel prices across cities, fuel grades, and geographic
+              regions.
+            </li>
+
+            <li>
+              Built Excel Pivot Tables and summary reports to organize key
+              findings.
+            </li>
+
+            <li>
+              Identified that San Francisco fuel prices averaged approximately
+              12 percent higher than San Diego.
+            </li>
+          </ul>
+        </div>
+
+        <div class="button-group">
+          <span class="button button-disabled">
+            Project Materials Coming Soon
+          </span>
+        </div>
+      </article>
     </section>
 
     <section class="card resume-card section" id="resume">
@@ -703,7 +763,7 @@
 
       <div class="button-group">
         <a
-          href="Nydell_F_Vera_Resume.pdf"
+          href="./Nydell_F_Vera_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           class="button button-primary"
@@ -712,7 +772,7 @@
         </a>
 
         <a
-          href="Nydell_F_Vera_Resume.pdf"
+          href="./Nydell_F_Vera_Resume.pdf"
           download
           class="button button-secondary"
         >
